@@ -1,0 +1,38 @@
+services:
+  api:
+    build:
+      context: .
+      args:
+        INSTALL_EXTRAS: ${DOCUMIND_INSTALL_EXTRAS:-model}
+    environment:
+      DOCUMIND_DATABASE_URL: sqlite:////app/data/documind.db
+      DOCUMIND_UPLOAD_DIR: /app/data/uploads
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4.1-mini}
+      DOCUMIND_OLLAMA_BASE_URL: ${DOCUMIND_OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      DOCUMIND_OLLAMA_MODEL: ${DOCUMIND_OLLAMA_MODEL:-gemma3:4b}
+    volumes:
+      - documind-data:/app/data
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  ui:
+    build: .
+    command: ["streamlit", "run", "frontend/app.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    environment:
+      DOCUMIND_API_URL: http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+
+volumes:
+  documind-data:

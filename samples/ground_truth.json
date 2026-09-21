@@ -1,0 +1,98 @@
+[
+  {
+    "filename": "invoice_001_text.pdf",
+    "scanned": false,
+    "ground_truth": {
+      "invoice_number": "DM-2025-1001",
+      "invoice_date": "2025-01-01",
+      "vendor_name": "Northstar Analytics",
+      "customer_name": "Acme Retail Ltd",
+      "currency": "USD",
+      "subtotal": 2708.75,
+      "tax": 0.0,
+      "total": 2708.75,
+      "line_items": [
+        {
+          "description": "Data analysis workshop",
+          "quantity": 2,
+          "unit_price": 450.0,
+          "amount": 900.0
+        },
+        {
+          "description": "Annual software license",
+          "quantity": 2,
+          "unit_price": 720.0,
+          "amount": 1440.0
+        },
+        {
+          "description": "UX research session",
+          "quantity": 1,
+          "unit_price": 275.0,
+          "amount": 275.0
+        },
+        {
+          "description": "Document digitization",
+          "quantity": 5,
+          "unit_price": 18.75,
+          "amount": 93.75
+        }
+      ]
+    }
+  },
+  {
+    "filename": "invoice_002_text.pdf",
+    "scanned": false,
+    "ground_truth": {
+      "invoice_number": "DM-2025-1002",
+      "invoice_date": "2025-01-08",
+      "vendor_name": "Blue Oak Supplies",
+      "customer_name": "Maple Works Inc",
+      "currency": "EUR",
+      "subtotal": 113.75,
+      "tax": 5.69,
+      "total": 119.44,
+      "line_items": [
+        {
+          "description": "Document digitization",
+          "quantity": 1,
+          "unit_price": 18.75,
+          "amount": 18.75
+        },
+        {
+          "description": "Cloud support hours",
+          "quantity": 1,
+          "unit_price": 95.0,
+          "amount": 95.0
+        }
+      ]
+    }
+  },
+  {
+    "filename": "invoice_003_scan.pdf",
+    "scanned": true,
+    "ground_truth": {
+      "invoice_number": "DM-2025-1003",
+      "invoice_date": "2025-01-15",
+      "vendor_name": "Nimbus Design Co",
+      "customer_name": "Orbit Foods Pvt Ltd",
+      "currency": "GBP",
+      "subtotal": 3762.5,
+      "tax": 376.25,
+      "total": 4138.75,
+      "line_items": [
+        {
+          "description": "Premium paper boxes",
+          "quantity": 5,
+          "unit_price": 32.5,
+          "amount": 162.5
+        },
+        {
+          "description": "Annual software license",
+          "quantity": 5,
+          "unit_price": 720.0,
+          "amount": 3600.0
+        }
+      ]
+    }
+  }
+]
